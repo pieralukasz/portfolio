@@ -1,0 +1,73 @@
+.navbar-container {
+
+    ul {
+
+        li {
+            position: absolute;
+            padding: 15px;
+            text-transform: uppercase;
+            font-family: $chakra-font;
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: .3s;
+            // color: #00ffff;
+
+            &:hover {
+                color: #05d1d1;
+                letter-spacing: 2px;
+                text-shadow: 2px 1px #000000;
+            }
+
+            // a {
+            //     display: block;
+            //     color: #ffffff;
+
+            //     &:hover {
+            //         color: #05d1d1;
+            //     }
+            // }
+
+        }
+
+        .about {
+            left: 0;
+            top: 60%;
+            transform: translate(0, -50%) rotate(-90deg);
+            transform-origin: top left;
+
+            &:hover {
+                top: 60.5%;
+            }
+
+        }
+
+        .experience {
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0);
+        }
+
+        .contact {
+            right: 0;
+            top: 60%;
+            transform: translate(0, -50%) rotate(90deg);
+            transform-origin: top right;
+            
+
+            &:hover {
+                top: 60.5%;
+            }
+
+        }
+
+        .projects {
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+
+}

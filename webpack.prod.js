@@ -26,6 +26,14 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.(png|jpe?g|gif|glb|gltf)$/i,
+                use: [
+                    {
+                        loader: 'file-loader?name=assets/[name].[ext]'
+                    }
+                ]
+            },
+            {
                 test: /\.(sass|scss|css)$/,
                 use: [
                     {

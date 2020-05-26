@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack 4 Typescript boilerplate</title>
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
+    <title>Portfolio Lukasz Piera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>"/>
+
+   
   </head>
 
   <body>
-    <h1 class="center">Hello, world! It works!</h1>
-    <h2 class="center">
-      If u want to Change your Preproceesor check out the readme!
-    </h2>
+    <div class="container-portfolio">
+      <home-page class="home-page"></home-page>
+    </div>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>
 </html>

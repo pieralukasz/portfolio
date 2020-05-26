@@ -1,0 +1,19 @@
+.information {
+
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    font-size: 120px;
+    color: white;
+    font-family: $chakra-font;
+
+    .dot {
+        font-size: 240px;
+        color: #05d1d1;
+    }
+
+    .name {
+        font-weight: bold;
+    }
+
+}

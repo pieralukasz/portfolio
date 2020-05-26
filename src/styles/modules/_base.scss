@@ -1,16 +1,15 @@
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 html {
   box-sizing: border-box;
   color: $primary-color;
   font-family: $primary-font;
-  background: #f1f1f1;
+  background: #ffffff;
 }
 
-.center {
-  text-align: center
+body {
+  overflow: hidden;
 }
