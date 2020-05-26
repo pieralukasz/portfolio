@@ -30,6 +30,8 @@ const findComponent = (path: string, routes: any): void => {
 const parseLocation = (): string => location.hash.slice(1).toLowerCase() || '/'
 
 export default {
+    routes,
     startRouter,
-    parseLocation
+    findComponent,
+    parseLocation,
 }

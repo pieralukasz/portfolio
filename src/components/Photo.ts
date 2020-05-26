@@ -35,7 +35,8 @@ class Photo extends HTMLElement {
 
         // Create Scene and Camera and Renderer
 
-        const { innerWidth, innerHeight } = window
+        const { innerWidth, innerHeight } = window;
+        const clock: THREE.Clock = new THREE.Clock();
         const scene: THREE.Scene = new THREE.Scene();
 
         const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
@@ -107,29 +108,26 @@ class Photo extends HTMLElement {
 
             star.position.y = THREE.MathUtils.randFloatSpread( 1000 )
             star.position.x = THREE.MathUtils.randFloatSpread( 1000 )
-
-            let timer = 0
-
-            let speed = 12.5
-
+    
             scene.add(star)
 
-            setInterval(() => {
+            const makeRandom = (): void => {
 
-                timer += speed
+                setTimeout(() => {
+                    star.position.z -= 25
+                    requestAnimationFrame(makeRandom)
+                }, 1000 / 50);
+            }
+    
+            makeRandom()
 
-                star.position.z -= 25
-
-                if(timer >= (500 / speed)) clearInterval()
-
-            }, speed)
-
-            
         }
 
         setInterval(() => {
             randomFallenStar()
-        }, 500)
+        }, 1000) 
+
+        
 
         addStar()
 
@@ -147,20 +145,27 @@ class Photo extends HTMLElement {
 
         // Render Scene
 
-        const clock: THREE.Clock = new THREE.Clock()
+       
 
         function render(): void {
             const delta = clock.getDelta()
 
-            cube.rotation.y += delta * 0.15
-            cube.rotation.z += delta * 0.03
+            if (Router.parseLocation() === '/' || Router.parseLocation() === '/#') {
 
-            sun.rotation.y += delta * 0.05
-            sun.rotation.x += delta * 0.05
+                cube.rotation.y += delta * 0.10
+                cube.rotation.z += delta * 0.03
+    
+                sun.rotation.y += delta * 0.05
+                sun.rotation.x += delta * 0.05
+            }
 
             renderer.render(scene, camera)
 
-            requestAnimationFrame(render)
+            setTimeout(() => {
+                requestAnimationFrame(render)
+            }, 1000 / 60)
+            
+            
         }
 
         render()
@@ -171,6 +176,7 @@ class Photo extends HTMLElement {
             camera.position.x = e.clientX / 30
             camera.position.y = e.clientY / 30
         })
+
 
     }
 

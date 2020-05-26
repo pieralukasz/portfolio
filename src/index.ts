@@ -5,16 +5,19 @@ import '@webcomponents/custom-elements/custom-elements.min';
 
 import Router from './routes/index'
 
- // components Home
+ // components Main
+
 import Home from './components/Home'
+import Contact from './components/Contact'
+
+// Main Kids
+
 import Navbar from './components/Navbar'
 import Photo from './components/Photo'
 import Hamburger from './components/Hamburger'
 import Information from './components/Information'
 
- // components Contact
 
-import Contact from './components/Contact'
 
 
 
