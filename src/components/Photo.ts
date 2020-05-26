@@ -20,7 +20,7 @@ class Photo extends HTMLElement {
     }
 
     constructor() {
-        super();
+        super()
     }
 
     // initial renderblue

@@ -23,26 +23,30 @@ class Information extends HTMLElement {
 
     connectedCallback(): void {
         this.innerHTML = this.template()
-        this.checkWidth()
-        window.addEventListener('resize', this.checkWidth)
+        this.checkWidthInformation()
+        window.addEventListener('resize', this.checkWidthInformation)
     }
 
-    checkWidth() {
+    checkWidthInformation() {
 
-        const information: HTMLDivElement = document.querySelector('.information')
-        const dot: HTMLDivElement = document.querySelector('.dot')
+        setTimeout(function() {
+            const information: HTMLDivElement = document.querySelector('.information')
+            const dot: HTMLDivElement = document.querySelector('.dot')
+    
+            if(window.innerWidth < 650) {
+                information.style.left = "50%"
+                information.style.transform = "translateX(-50%)"
+                information.style.fontSize = "50px"
+                dot.style.fontSize = "120px"
+            } else {
+                information.style.left = "10%"
+                information.style.transform = "translateX(0)"
+                information.style.fontSize = "120px"
+                dot.style.fontSize = "240px"
+            }
+        }, 100)
 
-        if(window.innerWidth < 650) {
-            information.style.left = "50%"
-            information.style.transform = "translateX(-50%)"
-            information.style.fontSize = "50px"
-            dot.style.fontSize = "120px"
-        } else {
-            information.style.left = "10%"
-            information.style.transform = "translateX(0)"
-            information.style.fontSize = "120px"
-            dot.style.fontSize = "240px"
-        }
+
     }
 
 
