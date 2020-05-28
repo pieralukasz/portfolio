@@ -29,9 +29,9 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|glb|gltf)$/i,
                 use: [
                     {
-                        loader: 'file-loader?name=assets/[name].[ext]'
-                    }
-                ]
+                        loader: 'file-loader?name=assets/[name].[ext]',
+                    },
+                ],
             },
             {
                 test: /\.(sass|scss|css)$/,

@@ -1,6 +1,7 @@
-class Contact extends HTMLElement {
+import Router from '../routes/index'
 
-    // template Contact 
+class Contact extends HTMLElement {
+    // template Contact
 
     template(): string {
         return `
@@ -19,7 +20,7 @@ class Contact extends HTMLElement {
                         </div>
                         <div class="message">
                             <textarea class="message-input" type="text" name="message"></textarea>
-                            <label name="message">Message:</label>
+                            <label name="message" class="message-label">Message:</label>
                         </div>
                         <div class="button-container">
                             <span></span>
@@ -34,7 +35,7 @@ class Contact extends HTMLElement {
     }
 
     constructor() {
-        super();
+        super()
     }
 
     // initial render
@@ -45,24 +46,26 @@ class Contact extends HTMLElement {
         window.addEventListener('resize', this.checkWidthContact)
     }
 
-    checkWidthContact() {
+    checkWidthContact(): void {
+        setTimeout(function () {
+            if (Router.parseLocation() === '/contact') {
+                const form: HTMLElement = document.querySelector(
+                    '.contact-form'
+                )
+                const headline: HTMLElement = document.querySelector(
+                    '.headline'
+                )
 
-        setTimeout(function() {
-
-            const form: HTMLElement = document.querySelector('.contact-form')
-            const headline: HTMLElement = document.querySelector('.headline')
-    
-            if(innerWidth <= 1000) {
-                form.style.width = "90%"
-                headline.style.fontSize = "1.4rem"
-            } else {
-                form.style.width = "50%"
-                headline.style.fontSize = "2.1rem"
+                if (innerWidth <= 1000) {
+                    form.style.width = '90%'
+                    headline.style.fontSize = '1.4rem'
+                } else {
+                    form.style.width = '50%'
+                    headline.style.fontSize = '2.1rem'
+                }
             }
         }, 100)
-
     }
-
 }
 
 export default Contact

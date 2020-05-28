@@ -1,6 +1,7 @@
-class Information extends HTMLElement {
+import Router from '../routes/index'
 
-    // template Navbar 
+class Information extends HTMLElement {
+    // template Navbar
 
     template(): string {
         return `
@@ -13,10 +14,8 @@ class Information extends HTMLElement {
         `
     }
 
-    width: number
-
     constructor() {
-        super();
+        super()
     }
 
     // initial render
@@ -28,28 +27,30 @@ class Information extends HTMLElement {
     }
 
     checkWidthInformation() {
+        setTimeout(function () {
+            if (
+                Router.parseLocation() === '/' ||
+                Router.parseLocation() === '#/'
+            ) {
+                const information: HTMLDivElement = document.querySelector(
+                    '.information'
+                )
+                const dot: HTMLDivElement = document.querySelector('.dot')
 
-        setTimeout(function() {
-            const information: HTMLDivElement = document.querySelector('.information')
-            const dot: HTMLDivElement = document.querySelector('.dot')
-    
-            if(window.innerWidth < 650) {
-                information.style.left = "50%"
-                information.style.transform = "translateX(-50%)"
-                information.style.fontSize = "50px"
-                dot.style.fontSize = "120px"
-            } else {
-                information.style.left = "10%"
-                information.style.transform = "translateX(0)"
-                information.style.fontSize = "120px"
-                dot.style.fontSize = "240px"
+                if (window.innerWidth < 650) {
+                    information.style.left = '50%'
+                    information.style.transform = 'translateX(-50%)'
+                    information.style.fontSize = '50px'
+                    dot.style.fontSize = '120px'
+                } else {
+                    information.style.left = '10%'
+                    information.style.transform = 'translateX(0)'
+                    information.style.fontSize = '120px'
+                    dot.style.fontSize = '240px'
+                }
             }
         }, 100)
-
-
     }
-
-
 }
 
 export default Information

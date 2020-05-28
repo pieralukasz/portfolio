@@ -1,6 +1,5 @@
 class Hamburger extends HTMLElement {
-
-    // template Navbar 
+    // template Navbar
 
     template(): string {
         return `
@@ -13,7 +12,7 @@ class Hamburger extends HTMLElement {
     }
 
     constructor() {
-        super();
+        super()
     }
 
     // initial render
@@ -21,7 +20,6 @@ class Hamburger extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
     }
-
 }
 
 export default Hamburger

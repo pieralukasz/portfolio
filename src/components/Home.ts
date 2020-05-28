@@ -1,6 +1,5 @@
 class Home extends HTMLElement {
-
-    // template Navbar 
+    // template Navbar
 
     template(): string {
         return `
@@ -15,7 +14,7 @@ class Home extends HTMLElement {
     }
 
     constructor() {
-        super();
+        super()
     }
 
     // initial render
@@ -23,7 +22,6 @@ class Home extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
     }
-
 }
 
 export default Home

@@ -1,13 +1,12 @@
 class Navbar extends HTMLElement {
-
-    // template Navbar 
+    // template Navbar
 
     template(): string {
         return `
         <div class="navbar-container">
             <ul>
                 <li class="experience">Knowledge</li>
-                <li class="about">About me</li>
+                <a href="#/about-me"><li class="about">About me</li></a>
                 <a href="#/contact"><li class="contact">Contact</li></a>
                 <li class="projects">Projects</li>
             </ul>
@@ -17,7 +16,7 @@ class Navbar extends HTMLElement {
     }
 
     constructor() {
-        super();
+        super()
     }
 
     // initial render
@@ -25,9 +24,6 @@ class Navbar extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
     }
-
-
-
 }
 
 export default Navbar

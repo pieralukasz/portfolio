@@ -12,6 +12,10 @@
         color: #fff
     }
 
+    .message-label {
+        margin: 20px 0 0 5px;
+    }
+
     i {
         position: absolute;
         right: 2%;
@@ -34,8 +38,7 @@
         top: 50%;
         transform: translate((-50%, -50%));
 
-        background-color: rgb(0, 0, 0);
-        opacity: 0.9;
+        background-color: rgba(0, 0, 0, 0.74);
         border-radius: 12px;
         border: 2px solid #3f3f3f;
         transition: .8s;
@@ -109,6 +112,7 @@
 
     .email {
         width: 90%;
+        margin-bottom: 10px;
     }
 
     .message {
@@ -144,6 +148,7 @@
 
         &:hover {
             letter-spacing: 6px;
+            border-radius: 20px;
             background: #05d1d1;
             border-radius: 5px;
             box-shadow: 0 0 5px #05d1d1,
