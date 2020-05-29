@@ -15,6 +15,7 @@ class Home extends HTMLElement {
 
     constructor() {
         super()
+        
     }
 
     // initial render
@@ -22,6 +23,7 @@ class Home extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
     }
+
 }
 
 export default Home

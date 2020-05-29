@@ -2,7 +2,7 @@
 
     font-family: $chakra-font;
     font-size: 250px;
-    color: #fff;
+    color: rgb(207, 207, 207);
 
     .arrow-down {
 
@@ -10,13 +10,39 @@
         bottom: 3%;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 10000;
-
+        z-index: -10000;
+        color: black;
         font-size: 4rem;
-        color: #05d1d1;
+        transition: .7s;
+        
 
         cursor: pointer;
 
+        &-active {
+            z-index: 10000;
+            color: #05d1d1;
+        }
+
+    }
+
+    .arrow-up {
+
+        position: absolute;
+        top: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -10000;
+        color: black;
+        font-size: 4rem;
+        transition: .7s;
+        
+
+        cursor: pointer;
+
+        &-active {
+            z-index: 10000;
+            color: #05d1d1;
+        }
     }
 
     .who-am {
@@ -27,10 +53,16 @@
         left: 50%;
         transform: translate(-50%, -50%);
         transition: $transition-about;
+        scroll-behavior: smooth;
+        scroll-snap-type: mandatory;
 
         span {
             color: #05d1d1;
         }
+    }
+
+    .scroll-down {
+        font-size: 2rem;
     }
 
     .easter-egg {
@@ -77,15 +109,15 @@
         position: absolute;
         width: 80%;
         text-align: center;
-        left: 10%;
-        transform: translateX(-50%);
-        color: black;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
         transition: $transition-about;
     }
 
     .information-hello-active {
         color: white;
-        left: 50%;
+        // left: 50%;
     }
 
     .itsme {
@@ -122,17 +154,17 @@
 
     .information-more {
         position:  absolute;
-        left: 60%;
+        left: 50%;
         transform: translate(-50%, -50%);
         font-size: 6rem;
         transition: $transition-about;
         text-align: center;
         width: 60%;
-        color: black;
+        color: white;
     }
 
     .information-more-active {
-        left: 50%;
+        // left: 50%;
         color: white;
     }
 
@@ -145,6 +177,21 @@
         text-align: center;
         width: 60%;
         cursor: pointer;
+    }
+
+    .cv-download {
+        position:  absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 6rem;
+        transition: $transition-about;
+        text-align: center;
+        width: 60%;
+
+        .polish, .english {
+            margin: 20px;
+            cursor: pointer;
+        }
     }
 
     .rainbow {
