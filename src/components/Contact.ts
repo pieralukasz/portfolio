@@ -1,4 +1,4 @@
-import Router from '../routes/index'
+import Router from '../routes'
 
 class Contact extends HTMLElement {
     // template Contact
@@ -9,7 +9,7 @@ class Contact extends HTMLElement {
             <div class="contact">
                 <photo-up class="photo-up"></photo-up>
                 <div class="contact-form">
-                    <a href="#/"><i class="material-icons">first_page</i></a>
+                    <a href="#/"><i class="material-icons back-to-menu">first_page</i></a>
                     <span></span>
                     <span></span>
                     <div class="headline">Send Me a Message!</div>

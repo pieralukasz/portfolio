@@ -4,7 +4,7 @@ import '../assets/planet1.jpg'
 import '../assets/sun.jpg'
 import { setInterval } from 'timers'
 
-import Router from '../routes/index'
+import Router from '../routes'
 
 class Photo extends HTMLElement {
     // template Photo

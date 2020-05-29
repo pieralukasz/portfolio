@@ -3,7 +3,7 @@ import '@webcomponents/custom-elements/custom-elements.min'
 
 // pseudo Router
 
-import Router from './routes/index'
+import Router from './routes'
 
 // components Main
 

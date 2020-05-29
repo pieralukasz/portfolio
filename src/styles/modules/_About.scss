@@ -4,20 +4,6 @@
     font-size: 250px;
     color: #fff;
 
-    .who-am {
-        
-        position: absolute;
-        text-align: center;
-        z-index: 10;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: .7s;
-
-        span {
-            color: #05d1d1;
-        }
-    }
-
     .arrow-down {
 
         position: absolute;
@@ -33,14 +19,166 @@
 
     }
 
+    .who-am {
+        
+        position: absolute;
+        text-align: center;
+        z-index: 10;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: $transition-about;
+
+        span {
+            color: #05d1d1;
+        }
+    }
+
+    .easter-egg {
+        transition: $transition-about;
+        position: absolute;
+        z-index: 2000;
+        left: 50%;
+        font-size: 10rem;
+        transform: translate(-50%, -50%);
+
+        .play {
+            cursor: pointer;
+            font-size: 2rem;
+            text-transform: uppercase;
+            background-color: #05d1d1;
+            border-radius: 20px;
+            border: 2px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            padding: 20px 30px;
+            transition: .3s;
+            
+
+
+            &:hover {
+                border: 2px solid rgba(0, 0, 0, 0);
+                letter-spacing: 2px;
+                background: #05d1d1;
+                box-shadow: 0 0 5px #05d1d1,
+                            0 0 25px #05d1d1,
+                            0 0 50px #05d1d1,
+                            0 0 100px #05d1d1;
+            }
+
+        }
+
+        .play-active {
+            animation: endEaster 1s;
+        }
+    }
+
+
     .information-hello {
         font-size: 6rem;
         position: absolute;
         width: 80%;
         text-align: center;
-        left: 50%;
+        left: 10%;
         transform: translateX(-50%);
-        transition: .7s;
+        color: black;
+        transition: $transition-about;
+    }
+
+    .information-hello-active {
+        color: white;
+        left: 50%;
+    }
+
+    .itsme {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+        width: 100px;
+        height: 100px;
+        background:pink;
+
+
+    }
+
+    .itsme-active {
+
+        animation: itsme 5s ease-in-out;
+
+    }
+
+    @keyframes itsme {
+        0% {
+            left: -50%;
+        }
+        50% {
+            left: 20%;
+            top: 60%;
+        }
+        100%{
+            left: 150%;
+            top: 80%;
+        }
+        
+    }
+
+    .information-more {
+        position:  absolute;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        font-size: 6rem;
+        transition: $transition-about;
+        text-align: center;
+        width: 60%;
+        color: black;
+    }
+
+    .information-more-active {
+        left: 50%;
+        color: white;
+    }
+
+    .hire-me {
+        position:  absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 6rem;
+        transition: $transition-about;
+        text-align: center;
+        width: 60%;
+        cursor: pointer;
+    }
+
+    .rainbow {
+        animation: colorRotate 2s linear 0s infinite;
     }
 
 }
+
+@keyframes endEaster {
+    0% {
+        top: 58%;
+    }
+    50% {
+        background-color: rgba(67, 67, 219, 0.459);
+    }
+    100% {
+        top: 58%;
+    }
+} 
+
+@keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }

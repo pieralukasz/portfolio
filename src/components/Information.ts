@@ -1,4 +1,4 @@
-import Router from '../routes/index'
+import Router from '../routes'
 
 class Information extends HTMLElement {
     // template Navbar
