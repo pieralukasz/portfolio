@@ -9,7 +9,7 @@ const routes = [
 ]
 
 let used: [any?] = []
-let usedComponent: [any?] =[]
+let usedComponent: [any?] = []
 
 const startRouter = async () => {
     const path: string = parseLocation()
@@ -21,47 +21,33 @@ const startRouter = async () => {
     ).innerHTML = Component.template()
 
     await Component.connectedCallback()
-
 }
-
-
 
 const findComponent = (path: string, routes: any): HTMLElement => {
     for (const route of routes) {
         if (route.path === path) {
-
             let pass: boolean = false
 
-            if(used.length > 0){
-
+            if (used.length > 0) {
                 for (const [index, iterator] of used.entries()) {
-    
-                    if(iterator === route.nodeN){
+                    if (iterator === route.nodeN) {
                         return usedComponent[index]
                     } else {
                         pass = true
                     }
-                        
                 }
-
             } else {
-
                 pass = true
             }
 
-            if(pass) {
-
+            if (pass) {
                 const elementMake = new route.component()
                 used.unshift(elementMake.nodeName)
                 usedComponent.unshift(elementMake)
                 return elementMake
-
             }
-
         }
     }
-
-    
 }
 
 const parseLocation = (): string => location.hash.slice(1).toLowerCase() || '/'

@@ -1,7 +1,6 @@
 import * as THREE from 'three'
-import { Colors } from 'three'
+import { Colors, Sphere } from 'three'
 import '../assets/planet1.jpg'
-import '../assets/sun.jpg'
 import { setInterval } from 'timers'
 
 import Router from '../routes'
@@ -74,7 +73,7 @@ class Photo extends HTMLElement {
         )
         const sunMaterial: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial(
             {
-                map: texture.load('../assets/sun.jpg'),
+                map: texture.load('https://solartextures.b-cdn.net/2k_mars.jpg'),
             }
         )
 
@@ -88,63 +87,37 @@ class Photo extends HTMLElement {
             scene.add(sun)
         }
 
+
         // Add stars
 
         function addStar(): void {
-            const materialStar = new THREE.MeshBasicMaterial({
-                color: 0xffffff,
-            })
 
-            for (let i = 1; i < 500; i++) {
-                let geometryStar = new THREE.SphereGeometry(
-                    Math.random() * 1,
-                    4,
-                    16
-                )
-                let star = new THREE.Mesh(geometryStar, materialStar)
+            const vertices: [any?] = [];
 
-                star.position.y = THREE.MathUtils.randFloatSpread(1000)
-                star.position.x = THREE.MathUtils.randFloatSpread(1000)
+            for (let i = 0; i < 2500; i ++ ) {
 
-                scene.add(star)
+	            const x: number = THREE.MathUtils.randFloatSpread( 1000 );
+	            const y: number = THREE.MathUtils.randFloatSpread( 800 );
+	            const z: number = THREE.MathUtils.randFloatSpread( 700 );
+
+	            vertices.push( x, y, z );
+
             }
+
+            const geometry: THREE.BufferGeometry = new THREE.BufferGeometry();
+            geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+
+            const material: THREE.PointsMaterial = new THREE.PointsMaterial( { color: 0xffffff } );
+
+            const points: THREE.Points = new THREE.Points( geometry, material );
+
+            scene.add( points );
         }
 
         addStar()
 
-        // Add randomly fallen star
+        // Add randomly fallen star must
 
-        // TO CHANGE
-
-        function randomFallenStar(): void {
-            const materialStar = new THREE.MeshBasicMaterial({
-                color: 0xffffff,
-            })
-            let geometryStar = new THREE.SphereGeometry(
-                Math.random() * 3,
-                4,
-                16
-            )
-            let star = new THREE.Mesh(geometryStar, materialStar)
-
-            star.position.y = THREE.MathUtils.randFloatSpread(1000)
-            star.position.x = THREE.MathUtils.randFloatSpread(1000)
-
-            scene.add(star)
-
-            const makeRandom = (): void => {
-                setTimeout(() => {
-                    star.position.z -= 25
-                    requestAnimationFrame(makeRandom)
-                }, 1000 / 50)
-            }
-
-            makeRandom()
-        }
-
-        setInterval(() => {
-            randomFallenStar()
-        }, 1000)
 
         // Resize Protect
 
@@ -161,6 +134,8 @@ class Photo extends HTMLElement {
         function render(): void {
             const delta = clock.getDelta()
 
+            
+
             if (
                 Router.parseLocation() === '/' ||
                 Router.parseLocation() === '/#'
@@ -176,7 +151,7 @@ class Photo extends HTMLElement {
 
             setTimeout(() => {
                 requestAnimationFrame(render)
-            }, 1000 / 60)
+            }, 1000 / 80)
         }
 
         render()
@@ -189,7 +164,44 @@ class Photo extends HTMLElement {
                 camera.position.y = e.clientY / 30
             })
         }
+
     }
 }
 
 export default Photo
+
+
+// function randomFallenStar(): void {
+//     const materialStar = new THREE.MeshBasicMaterial({
+//         color: 0xffffff,
+//     })
+//     let geometryStar = new THREE.SphereGeometry(
+//         Math.random() * 3,
+//         4,
+//         4
+//     )
+//     let star = new THREE.Mesh(geometryStar, materialStar)
+
+//     star.position.y = THREE.MathUtils.randFloatSpread(500)
+//     star.position.x = THREE.MathUtils.randFloatSpread(1000)
+
+//     scene.add(star)
+
+//     const makeRandom = (): void => {
+//         setTimeout(() => {
+//             star.position.z -= 25
+//             requestAnimationFrame(makeRandom)
+//         }, 1000 / 50)
+
+//         setTimeout(() => {
+//             scene.remove(star) 
+//             // clearInterval(stopMe)          
+//         }, 2000);
+//     }
+
+//     makeRandom()
+// }
+
+// const stopMe = setInterval(() => {
+//     randomFallenStar()
+// }, 250)
