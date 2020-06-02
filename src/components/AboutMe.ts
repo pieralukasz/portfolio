@@ -1,4 +1,3 @@
-import { throws } from 'assert'
 import '../assets/CVŁukaszPiera.pdf'
 
 interface Page {
@@ -76,10 +75,10 @@ class AboutMe extends HTMLElement {
             this.checkActiveArrow()
         }, 100)
 
-        window.addEventListener('resize', this.checkWidthAll.bind(this))
-        window.addEventListener('wheel', this.checkScrollMouse.bind(this), { passive: false })
-        window.addEventListener('touchstart', this.startTouch.bind(this))
-        window.addEventListener('touchmove', this.moveTouch.bind(this))
+        document.body.addEventListener('resize', this.checkWidthAll.bind(this))
+        document.body.addEventListener('wheel', this.checkScrollMouse.bind(this), { passive: false })
+        document.body.addEventListener('touchstart', this.startTouch.bind(this))
+        document.body.addEventListener('touchmove', this.moveTouch.bind(this))
 
         this.getPage('arrow-down').name.addEventListener('click', this.pageDown.bind(this))
         this.getPage('arrow-up').name.addEventListener('click', this.pageUp.bind(this))

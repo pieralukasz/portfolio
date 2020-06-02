@@ -17,7 +17,6 @@ import Projects from './components/Projects'
 
 import Navbar from './components/Navbar'
 import Photo from './components/Photo'
-import Hamburger from './components/Hamburger'
 import Information from './components/Information'
 
 window.addEventListener('DOMContentLoaded', (): void => {
@@ -30,7 +29,6 @@ window.addEventListener('DOMContentLoaded', (): void => {
 
     customElements.define('navbar-top', Navbar)
     customElements.define('photo-up', Photo)
-    customElements.define('hamburger-menu', Hamburger)
     customElements.define('information-mid', Information)
     customElements.define('contact-right', Contact)
     customElements.define('home-page', Home)

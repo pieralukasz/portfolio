@@ -130,6 +130,8 @@ class Photo extends HTMLElement {
 
         // Render Scene
 
+        const hello: any = document.querySelector('.information')
+
         function render(): void {
             const delta = clock.getDelta()
 
@@ -166,6 +168,8 @@ class Photo extends HTMLElement {
                 camera.position.y = e.clientY / 30
             })
         }
+
+       
 
     }
 }

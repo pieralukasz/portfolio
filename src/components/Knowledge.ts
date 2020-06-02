@@ -1,6 +1,5 @@
-import * as THREE from 'three'
 import knowledgeList from './assets/knowledge'
-const OrbitControls = require('three-orbit-controls')(THREE)
+import Router from '../routes'
 
 class Knowledge extends HTMLElement {
     // template Knowledge
@@ -9,11 +8,19 @@ class Knowledge extends HTMLElement {
         return `
 
         <div class="knowledge">
-
-            <div class="canvas"></div>
-            <div id="list-knowledge"></div>
-        
+            <div class="skills">My skills<span class="know-dot">.</span></div>
+            <div class="skills-container">
+                <div class="frontend">
+                     <div class="title">Frontend</div>
+                </div>
+                <div class="backend">
+                    <div class="title">Backend</div>
+                </div>
+            </div>
+            
+            <a href="#/"><i class="material-icons home">home</i></a>
         </div>
+
 
 
         
@@ -27,64 +34,33 @@ class Knowledge extends HTMLElement {
     // initial render
 
     connectedCallback(): void {
-        this.innerHTML = this.template()
+        setTimeout(() => {
+            document.querySelector('.container-portfolio').innerHTML = this.template()
+        }, 100);
         this.makeKnowledge()
+        this.checkWidthKnowledge()
+        document.body.addEventListener('resize', this.checkWidthKnowledge)
     }
 
     makeKnowledge() {
 
-        // make the same stars 
-
-        const scene: THREE.Scene = new THREE.Scene()
-
-        const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
-            60,
-            innerWidth / innerHeight,
-            0.1,
-            10
-        )
-
-        const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
-            antialias: true,
-        })
+    }
 
 
-        renderer.setSize(window.innerWidth, window.innerHeight)
-        document.querySelector('.canvas').appendChild(renderer.domElement)
 
-        const controls = new OrbitControls(camera);
-        controls.enableDamping = true;
-        controls.enablePan = false;
-        controls.minDistance = 1.2;
-        controls.maxDistance = 4;
-        controls.update();
+    checkWidthKnowledge() {
 
-        // make one text
+        const skills: HTMLDivElement = document.querySelector('.skills')
+        const dot: HTMLSpanElement = document.querySelector('.know-dot')
 
-        
-
-        function onWindowResize(): void {
-            camera.aspect = window.innerWidth / window.innerHeight
-            camera.updateProjectionMatrix()
-            renderer.setSize(window.innerWidth, window.innerHeight)
+        if (window.innerWidth < 650) {
+            skills.style.fontSize = '50px'
+            dot.style.fontSize = '120px'
+        } else {
+            skills.style.fontSize = '6rem'
+            dot.style.fontSize = '150px'
         }
-
-        window.addEventListener('resize', onWindowResize, false)
-
-        function render(): void {
-
-            renderer.render(scene, camera)
-
-            setTimeout(() => {
-                requestAnimationFrame(render)
-            }, 1000 / 80)
-        }
-
-
-        render()
-
-    
-
+            
     }
 }
 

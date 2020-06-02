@@ -4,6 +4,8 @@ import AboutMe from './components/AboutMe'
 import Knowledge from './components/Knowledge'
 import Projects from './components/Projects'
 
+import resetListeners from './components/assets/resetListeners'
+
 const routes = [
     { path: '/', component: Home, nodeN: 'HOME-PAGE' },
     { path: '/contact', component: Contact, nodeN: 'CONTACT-RIGHT' },
@@ -18,13 +20,13 @@ let usedComponent: [any?] = []
 const startRouter = async () => {
     const path: string = parseLocation()
 
+    checkRouter()
+
+    resetListeners()
+
     const Component: any = findComponent(path, routes)
 
-    console.log(used);
-
-    document.querySelector(
-        '.container-portfolio'
-    ).innerHTML = Component.template()
+    document.querySelector('.container-portfolio').innerHTML = Component.template()
 
     await Component.connectedCallback()
 }
@@ -57,6 +59,16 @@ const findComponent = (path: string, routes: any): HTMLElement => {
 }
 
 const parseLocation = (): string => location.hash.slice(1).toLowerCase() || '/'
+
+const checkRouter = () => {
+
+    if(parseLocation() === '/knowledge-me'){
+        document.body.style.overflowY = "scroll"
+        
+    } else {
+        document.body.style.overflow = "hidden"
+    }
+}
 
 export default {
     routes,

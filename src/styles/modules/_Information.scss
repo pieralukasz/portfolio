@@ -6,10 +6,12 @@
     font-size: 120px;
     color: white;
     font-family: $chakra-font;
+    
 
     .dot {
         font-size: 240px;
         color: #05d1d1;
+        animation: dotAnimation 2s ease-in-out infinite;
     }
 
     .name {
@@ -17,3 +19,4 @@
     }
 
 }
+
