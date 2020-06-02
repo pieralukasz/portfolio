@@ -7,7 +7,6 @@ class Contact extends HTMLElement {
         return `
 
             <div class="contact">
-                <photo-up class="photo-up"></photo-up>
                 <div class="contact-form">
                     <a href="#/"><i class="material-icons back-to-menu">first_page</i></a>
                     <span></span>

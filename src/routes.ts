@@ -22,8 +22,6 @@ const startRouter = async () => {
 
     checkRouter()
 
-    resetListeners()
-
     const Component: any = findComponent(path, routes)
 
     document.querySelector('.container-portfolio').innerHTML = Component.template()

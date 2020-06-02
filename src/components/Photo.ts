@@ -24,6 +24,8 @@ class Photo extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
         this.makeTHREE()
+
+        window.addEventListener('load', this.makeTHREE)
     }
 
     makeTHREE(): void {
@@ -51,14 +53,18 @@ class Photo extends HTMLElement {
         // Set moon
 
         const geometry: THREE.SphereGeometry = new THREE.SphereGeometry(
-            300,
-            64,
-            64
+            310,
+            256,
+            256
         )
         const texture: THREE.TextureLoader = new THREE.TextureLoader()
         const material: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
             map: texture.load('../assets/planet1.jpg'),
+            
         })
+
+
+        
         const cube: THREE.Mesh = new THREE.Mesh(geometry, material)
         cube.position.set(220, -200, 0)
         cube.renderOrder = 1000
@@ -81,10 +87,18 @@ class Photo extends HTMLElement {
 
         // only show on Home component
 
-        if (Router.parseLocation() === '/' || Router.parseLocation() === '/#') {
-            scene.add(cube)
-            scene.add(sun)
+
+        function addOrDelete() {
+            if (Router.parseLocation() === '/' || Router.parseLocation() === '/#') {
+                scene.add(cube)
+                scene.add(sun)
+            } else {
+                scene.remove(cube)
+                scene.remove(sun)
+            }
         }
+
+
 
 
         // Add stars
@@ -93,7 +107,7 @@ class Photo extends HTMLElement {
 
             const vertices: [any?] = [];
 
-            for (let i = 0; i < 1000; i ++ ) {
+            for (let i = 0; i < 1500; i ++ ) {
 
 	            const x: number = THREE.MathUtils.randFloatSpread( 1000 );
 	            const y: number = THREE.MathUtils.randFloatSpread( 800 );
@@ -115,9 +129,6 @@ class Photo extends HTMLElement {
 
         addStar()
 
-        // Add randomly fallen star must
-
-
         // Resize Protect
 
         function onWindowResize(): void {
@@ -130,12 +141,8 @@ class Photo extends HTMLElement {
 
         // Render Scene
 
-        const hello: any = document.querySelector('.information')
-
         function render(): void {
             const delta = clock.getDelta()
-
-            
 
             if (
                 Router.parseLocation() === '/' ||
@@ -152,7 +159,7 @@ class Photo extends HTMLElement {
 
             setTimeout(() => {
                 requestAnimationFrame(render)
-            }, 1000 / 80)
+            }, 1000 / 70)
         }
 
 
@@ -168,6 +175,10 @@ class Photo extends HTMLElement {
                 camera.position.y = e.clientY / 30
             })
         }
+
+
+        window.addEventListener('hashchange', addOrDelete)
+        window.addEventListener('load', addOrDelete)
 
        
 

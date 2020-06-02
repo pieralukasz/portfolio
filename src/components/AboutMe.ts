@@ -36,8 +36,6 @@ class AboutMe extends HTMLElement {
                 <i class="material-icons arrow-down">keyboard_arrow_down</i>
                 <a href="#/"><i class="material-icons arrow-right rainbow">home</i></a>
             </div>
-            <photo-up class="photo-up"></photo-up>
-        
         `
     }
 
@@ -152,16 +150,18 @@ class AboutMe extends HTMLElement {
         this.getAllElements()
 
         if (howMany > 0) {
-            // UP
-            if (this.getPage('easter-egg').top <= 45) {
-                this.moveUp(this.containerElement, movePercentage)
+            // DOWN
+            if (this.getPage('cv-download').top >= 55) {
+                this.moveDown(this.containerElement, movePercentage)
+                
             } else {
                 this.setActive(this.getPage('play'), true, 5000)
             }
         } else {
-            // DOWN
-            if (this.getPage('cv-download').top >= 55) {
-                this.moveDown(this.containerElement, movePercentage)
+            // UP
+            if (this.getPage('easter-egg').top <= 45) {
+            
+                this.moveUp(this.containerElement, movePercentage)
             }
         }
 

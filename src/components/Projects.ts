@@ -5,9 +5,12 @@ class Projects extends HTMLElement {
         return `
 
             <div class="projects">
-                <photo-up class="photo-up"></photo-up> 
                 <i class="material-icons arrow-right arrow">keyboard_arrow_right</i>
                 <i class="material-icons arrow-left arrow">keyboard_arrow_left</i>
+                <div class="projects-container">
+                    <div class="project-info"></div>
+                    <div class="project-gif"></div>
+                </div>
             </div>
         
         `

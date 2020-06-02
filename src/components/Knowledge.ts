@@ -12,9 +12,11 @@ class Knowledge extends HTMLElement {
             <div class="skills-container">
                 <div class="frontend">
                      <div class="title">Frontend</div>
+                     <div class="frontend-container"></div>
                 </div>
                 <div class="backend">
                     <div class="title">Backend</div>
+                    <div class="backend-container"></div>
                 </div>
             </div>
             
@@ -34,15 +36,37 @@ class Knowledge extends HTMLElement {
     // initial render
 
     connectedCallback(): void {
-        setTimeout(() => {
-            document.querySelector('.container-portfolio').innerHTML = this.template()
-        }, 100);
+        this.innerHTML = this.template()
         this.makeKnowledge()
         this.checkWidthKnowledge()
         document.body.addEventListener('resize', this.checkWidthKnowledge)
     }
 
-    makeKnowledge() {
+    makeKnowledge(): void {
+
+        const frontend: HTMLDivElement = document.querySelector('.frontend-container')
+        const backend: HTMLDivElement = document.querySelector('.backend-container')
+
+        for (const element of knowledgeList) {
+
+            const divEl: HTMLDivElement = document.createElement('div')
+            divEl.classList.add('element')
+            divEl.textContent = element.name
+
+            switch (element.expert) {
+                case 'frontend':
+                    divEl.classList.add('frontend-element')
+                    frontend.appendChild(divEl)
+                    break;
+                case 'backend':
+                    divEl.classList.add('backend-element')
+                    backend.appendChild(divEl)
+                    break;
+                default:
+                    break;
+            }
+            
+        }
 
     }
 

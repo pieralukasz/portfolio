@@ -35,4 +35,6 @@ window.addEventListener('DOMContentLoaded', (): void => {
     customElements.define('about-me', AboutMe)
     customElements.define('knowledge-me', Knowledge)
     customElements.define('projects-me', Projects)
+
+    
 })
