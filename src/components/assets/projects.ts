@@ -10,7 +10,7 @@ const projectsList =  [
     },
     {
         name: "Snake Vanilla JS",
-        gif: "/assets/llhurt.gif",
+        gif: "/assets/snake.gif",
         code: '',
         live: '',
         left: '200%',

@@ -60,11 +60,16 @@ const parseLocation = (): string => location.hash.slice(1).toLowerCase() || '/'
 
 const checkRouter = () => {
 
+    const siteWrap: HTMLElement = document.querySelector('.site-wrap')
+
     if(parseLocation() === '/knowledge-me'){
         document.body.style.overflowY = "scroll"
-        
-    } else {
+        siteWrap.style.overflowY = 'scroll'
+    } 
+    else {
         document.body.style.overflow = "hidden"
+        siteWrap.style.overflow = 'hidden'
+
     }
 }
 

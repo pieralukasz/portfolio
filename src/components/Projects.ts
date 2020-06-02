@@ -1,4 +1,5 @@
 import '../assets/llhurt.gif'
+import '../assets/snake.gif'
 import projectList from './assets/projects'
 import { create } from 'domain'
 
@@ -15,9 +16,11 @@ class Projects extends HTMLElement {
         
         `
     }
+    private initial: number
 
     constructor() {
         super()
+        this.initial = 0
 
         
     }
@@ -31,6 +34,9 @@ class Projects extends HTMLElement {
             this.makeProjects()
         }, 100);
         
+        window.addEventListener('keydown', this.moveKeyBoard.bind(this))
+
+        window.addEventListener('touchstart', this.startTouch.bind(this))
 
         document.querySelector('.right-projects').addEventListener('click', this.moveRight.bind(this))
         document.querySelector('.left-projects').addEventListener('click', this.moveLeft.bind(this))
@@ -100,17 +106,68 @@ class Projects extends HTMLElement {
 
     }
 
+    startTouch(e: TouchEvent): void {
+        this.initial = e.touches[0].clientX
+    }
+
+    moveTouch(e: TouchEvent): void {
+        if (!this.initial) return
+
+        const whereNow: number = e.touches[0].clientX
+
+        const howMany: number = this.initial - whereNow
+
+
+        // if (howMany > 0) {
+        //     // DOWN
+        //     if (this.getPage('cv-download').top >= 55) {
+        //         this.moveDown(this.containerElement, movePercentage)
+                
+        //     } else {
+        //         this.setActive(this.getPage('play'), true, 5000)
+        //     }
+        // } else {
+        //     // UP
+        //     if (this.getPage('easter-egg').top <= 45) {
+            
+        //         this.moveUp(this.containerElement, movePercentage)
+        //     }
+        // }
+
+        this.initial = null
+    }
+
+    moveKeyBoard(e: any) {
+
+        switch (e.code) {
+            case 'ArrowRight':
+                this.moveRight()
+                break;
+            case 'ArrowLeft':
+                this.moveLeft()
+                break;
+        
+            default:
+                break;
+        }
+    }
+
     move(where: string): void {
 
         const projectsContainerList: any = document.querySelectorAll('.projects-container')
+
+        const leftFirst: number = parseInt(projectsContainerList[0].style.left, 10)
         
         for (const element of projectsContainerList) {
 
             const left: number = parseInt(element.style.left, 10)
 
             if(where === 'left') {
+
+                if(leftFirst === 50) return;
                 element.style.left = `${left + 150}%`   
             } else if (where === 'right') {
+                if(leftFirst === 50 - ((projectsContainerList.length - 1) * 150)) return;
                 element.style.left = `${left - 150}%`  
             }
             
