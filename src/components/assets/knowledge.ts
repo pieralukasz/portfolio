@@ -70,6 +70,11 @@ const knowledgeList =  [
         expert: "backend"
     },
     {
+        name: "Linux",
+        text: "I write a lot of in !",
+        expert: "backend"
+    },
+    {
         name: "NPM",
         text: "I write a lot of in !",
         expert: "backend"

@@ -1,4 +1,8 @@
-.projects {
+.projects-down {
+    width: 100%;
+    height: 100%;
+    font-family: $chakra-font;
+
 
     .arrow {
 
@@ -12,15 +16,10 @@
         
         cursor: pointer;
 
-        // &-active {
-        //     z-index: 10000;
-        //     color: #05d1d1;
-
             &:active {
                 color: white;
             }
-        
-
+    
     }
 
     .arrow-left {
@@ -30,5 +29,174 @@
     .arrow-right {
         right: 2%; 
     }
+
+
+
+    .projects-container {
+
+        position: relative;
+
+        .back-to-menu {
+            position: absolute;
+            font-size: 2.4rem;
+            left: 2%;
+            top: 2%;
+            animation: colorRotate 4s ease-in-out infinite;
+        }
+
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        min-width: 300px;
+        min-height: 90vh;
+        background-color: rgba(0, 0, 0, 0.521);
+        border-radius: 12px;
+        border: 2px solid #3f3f3f;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        transition: .8s;
+
+        &:hover {
+            border: 2px solid #dddddd;
+        }
+
+        @media (max-width: 1300px) {
+            width: 70%;
+        }
+
+        @media (max-width: 1050px) {
+            width: 95%;
+        }
+
+        .project-gif{
+
+            width: 70%;
+            margin-top: 5%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                border: 2px solid rgb(0, 0, 0);
+                border-radius: 12px;
+                width: 90%;
+                max-height: 300px;
+                max-width: 500px;
+            }
+
+            @media (max-width: 900px) {
+
+                margin-top: 16%;
+                width: 76%;
+
+                img {
+                    // width: 100%;
+                    min-height: 90%;
+                }
+                
+            }
+
+            @media (max-width: 600px) {
+
+                width: 100%;
+
+                img {
+                    width: 90%;
+                    min-height: 90%;
+                }
+                
+            }
+        }
+
+        .project-info {
+
+            color: rgb(255, 255, 255);
+            width: 80%;
+            font-size: 2.4rem;
+            text-align: center;
+            padding: 13px;
+            margin-top: 5%;
+
+            @media (max-width: 700px) {
+                font-size: 1.4rem;
+            }
+        }
+
+        .project-live {
+            flex-grow: 1;
+            height: 20%;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .live, .code {
+                cursor: pointer;
+                font-family: $chakra-font;
+                color: #ffffff;
+                margin: 10px;
+                padding: 10px;
+                text-align: center;
+                width: 30%;
+                height: 100%;
+                border: 2px solid white;
+                border-radius: 10px;
+                transition: .3s;
+                font-size: 1.7rem;
+
+                &:hover {
+                    border: 2px solid rgb(30, 224, 198); 
+                }
+            }
+        }
+
+        .project-used {
+            width: 100%;
+            // height: 30%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-height: 40%;
+            margin-bottom: 3%;
+            // flex-grow: 1;
+            margin-top: auto;
+            // padding-bottom: 30px;
+
+            .used {
+                width: 20%;
+                height: 50px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.521);
+                border-radius: 12px;
+                border: 2px solid #3f3f3f;
+                margin: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.1rem;
+                transition: .3s;
+                
+
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid #b6b6b6;
+                }
+
+                @media (max-width: 800px) {
+                    margin: 5px;
+                    width: 90px;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+        
+    }
+
 
 }

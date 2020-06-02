@@ -1,16 +1,16 @@
+import '../assets/llhurt.gif'
+import projectList from './assets/projects'
+import { create } from 'domain'
+
 class Projects extends HTMLElement {
     // template Projects
 
     template(): string {
         return `
 
-            <div class="projects">
-                <i class="material-icons arrow-right arrow">keyboard_arrow_right</i>
-                <i class="material-icons arrow-left arrow">keyboard_arrow_left</i>
-                <div class="projects-container">
-                    <div class="project-info"></div>
-                    <div class="project-gif"></div>
-                </div>
+            <div class="projects-down" style="overflow: hidden">
+                <i class="material-icons arrow-right arrow right-projects">keyboard_arrow_right</i>
+                <i class="material-icons arrow-left arrow left-projects">keyboard_arrow_left</i>
             </div>
         
         `
@@ -18,13 +18,121 @@ class Projects extends HTMLElement {
 
     constructor() {
         super()
+
+        
     }
 
     // initial render
 
     connectedCallback(): void {
         this.innerHTML = this.template()
+
+        setTimeout(() => {
+            this.makeProjects()
+        }, 100);
+        
+
+        document.querySelector('.right-projects').addEventListener('click', this.moveRight.bind(this))
+        document.querySelector('.left-projects').addEventListener('click', this.moveLeft.bind(this))
     }
+
+    makeProjects(): void {
+
+        const container: HTMLDivElement = document.querySelector('.projects-down')
+
+
+        for (const element of projectList) {
+
+            const arrowBack: HTMLElement = this.createElement('a', '', 'href', '#/')
+            arrowBack.innerHTML = '<i class="material-icons back-to-menu">first_page</i>'
+            
+            const projectContainer: HTMLElement = 
+            this.createElement('div', 'projects-container', 'style', `left: ${element.left}`)
+            projectContainer.appendChild(arrowBack)
+
+            container.appendChild(projectContainer)
+
+            const projectGif:HTMLElement = this.createElement('div', 'project-gif')
+            const img: HTMLElement = this.createElement('img','', 'src', element.gif)
+            projectGif.appendChild(img)
+            projectContainer.appendChild(projectGif)
+
+            const projectInfo:HTMLElement = this.createElement('div', 'project-info')
+            projectInfo.textContent = element.name
+            projectContainer.appendChild(projectInfo)
+
+            const projectLive:HTMLElement = this.createElement('div', 'project-live')
+            const code: HTMLElement = this.createElement('div', 'code')
+            code.textContent = 'CODE'
+            const live: HTMLElement = this.createElement('div', 'live')
+            live.textContent = 'LIVE'
+            projectLive.appendChild(code)
+            projectLive.appendChild(live)
+            projectContainer.appendChild(projectLive)
+
+            const projectUsed:HTMLElement = this.createElement('div', 'project-used')
+
+            for (const spec of element.specification) {
+
+                const specify: HTMLElement = this.createElement('div', 'used')
+                specify.textContent = spec
+                projectUsed.appendChild(specify)
+                
+            }
+
+            projectContainer.appendChild(projectUsed)
+
+        }
+
+ 
+
+    }
+
+    createElement(which: string, classa?: string, attr?: string, value?: string): HTMLElement {
+
+        const element: HTMLElement = document.createElement(which)
+
+        if(classa) element.classList.add(classa)
+
+        if(attr) element.setAttribute(attr, value)
+    
+        return element;
+
+    }
+
+    move(where: string): void {
+
+        const projectsContainerList: any = document.querySelectorAll('.projects-container')
+        
+        for (const element of projectsContainerList) {
+
+            const left: number = parseInt(element.style.left, 10)
+
+            if(where === 'left') {
+                element.style.left = `${left + 150}%`   
+            } else if (where === 'right') {
+                element.style.left = `${left - 150}%`  
+            }
+            
+        }
+
+    }
+
+    moveRight(): void {
+
+        this.move('right')
+
+    }
+
+    moveLeft(): void {
+
+        this.move('left')
+    }
+
+
+
+
+    
 }
 
 export default Projects

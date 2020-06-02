@@ -25,7 +25,7 @@ class Photo extends HTMLElement {
         this.innerHTML = this.template()
         this.makeTHREE()
 
-        window.addEventListener('load', this.makeTHREE)
+        // window.addEventListener('load', this.makeTHREE)
     }
 
     makeTHREE(): void {

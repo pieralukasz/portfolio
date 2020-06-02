@@ -27,7 +27,7 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.(png|jpe?g|gif|glb|gltf|pdf|ic)$/i,
+                test: /\.(png|jpe?g|gif|glb|gltf|pdf|ic|gif)$/i,
                 use: 'file-loader?name=assets/[name].[ext]',
             },
             {

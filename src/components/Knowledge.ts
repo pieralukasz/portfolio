@@ -23,6 +23,10 @@ class Knowledge extends HTMLElement {
             <a href="#/"><i class="material-icons home">home</i></a>
         </div>
 
+        <photo-up class="photo-up" style="position: absolute; top: 100%;">
+        <div class="photo"></div>
+      </photo-up>
+
 
 
         

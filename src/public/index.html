@@ -8,17 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>"/>
+    <style>
+      .site-wrap{
+       position: fixed;
+       overflow-x: hidden;
+       width: 100%;
+       height: 100%;
+       overflow-y: scroll !important;
+   }
+
+    </style>
 
    
   </head>
 
   <body>
-    <div class="container-portfolio">
+    <div class="site-wrap">
+      <div class="container-portfolio" >
       
+      </div>
+      <photo-up class="photo-up">
+        <div class="photo"></div>
+      </photo-up>
     </div>
-    <photo-up class="photo-up">
-      <div class="photo"></div>
-    </photo-up>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>
 </html>
