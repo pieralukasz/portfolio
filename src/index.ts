@@ -10,6 +10,8 @@ import Router from './routes'
 import Home from './components/Home'
 import Contact from './components/Contact'
 import AboutMe from './components/AboutMe'
+import Knowledge from './components/Knowledge'
+import Projects from './components/Projects'
 
 // Main Kids
 
@@ -33,4 +35,6 @@ window.addEventListener('DOMContentLoaded', (): void => {
     customElements.define('contact-right', Contact)
     customElements.define('home-page', Home)
     customElements.define('about-me', AboutMe)
+    customElements.define('knowledge-me', Knowledge)
+    customElements.define('projects-me', Projects)
 })

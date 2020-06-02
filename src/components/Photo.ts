@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { Colors, Sphere } from 'three'
 import '../assets/planet1.jpg'
-import { setInterval } from 'timers'
 
 import Router from '../routes'
 
@@ -94,7 +93,7 @@ class Photo extends HTMLElement {
 
             const vertices: [any?] = [];
 
-            for (let i = 0; i < 2500; i ++ ) {
+            for (let i = 0; i < 1000; i ++ ) {
 
 	            const x: number = THREE.MathUtils.randFloatSpread( 1000 );
 	            const y: number = THREE.MathUtils.randFloatSpread( 800 );
@@ -121,7 +120,7 @@ class Photo extends HTMLElement {
 
         // Resize Protect
 
-        function onWindowResize() {
+        function onWindowResize(): void {
             camera.aspect = window.innerWidth / window.innerHeight
             camera.updateProjectionMatrix()
             renderer.setSize(window.innerWidth, window.innerHeight)
@@ -154,7 +153,10 @@ class Photo extends HTMLElement {
             }, 1000 / 80)
         }
 
+
         render()
+
+        
 
         // Camera move
 

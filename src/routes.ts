@@ -1,11 +1,15 @@
 import Home from './components/Home'
 import Contact from './components/Contact'
 import AboutMe from './components/AboutMe'
+import Knowledge from './components/Knowledge'
+import Projects from './components/Projects'
 
 const routes = [
     { path: '/', component: Home, nodeN: 'HOME-PAGE' },
     { path: '/contact', component: Contact, nodeN: 'CONTACT-RIGHT' },
     { path: '/about-me', component: AboutMe, nodeN: 'ABOUT-ME' },
+    { path: '/knowledge-me', component: Knowledge, nodeN: 'KNOWLEDGE-ME' },
+    { path: '/projects-me', component: Projects, nodeN: 'PROJECTS-ME' },
 ]
 
 let used: [any?] = []
@@ -15,6 +19,8 @@ const startRouter = async () => {
     const path: string = parseLocation()
 
     const Component: any = findComponent(path, routes)
+
+    console.log(used);
 
     document.querySelector(
         '.container-portfolio'

@@ -5,10 +5,10 @@ class Navbar extends HTMLElement {
         return `
         <div class="navbar-container">
             <ul>
-                <li class="experience">Knowledge</li>
+                <a href="#/knowledge-me"><li class="experience">Knowledge</li></a>
                 <a href="#/about-me"><li class="about">About me</li></a>
                 <a href="#/contact"><li class="contact">Contact</li></a>
-                <li class="projects">Projects</li>
+                <a href="#/projects-me"><li class="projects">Projects</li></a>
             </ul>
         </div>
         
