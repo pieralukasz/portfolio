@@ -91,10 +91,10 @@ class Photo extends HTMLElement {
         function addOrDelete() {
             if (Router.parseLocation() === '/' || Router.parseLocation() === '/#') {
                 scene.add(cube)
-                scene.add(sun)
+                // scene.add(sun)
             } else {
                 scene.remove(cube)
-                scene.remove(sun)
+                // scene.remove(sun)
             }
         }
 

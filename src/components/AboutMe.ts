@@ -13,7 +13,7 @@ class AboutMe extends HTMLElement {
 
             <div class="aboutme">
                 <! –– Congratulations, you found easter Egg, enjoy! ––>
-                <div class="easter-egg" style="top: -250%"><div class="play">play</div></div>
+                <div class="easter-egg" style="top: -250%"><div class="play">You Found Me Huhuhu</div></div>
                 <div class="who-am" style="top: 50%;">
                     Who am I<span class="question-mark">?</span><br>         
                 </div>
@@ -73,14 +73,33 @@ class AboutMe extends HTMLElement {
             this.checkActiveArrow()
         }, 100)
 
-        document.body.addEventListener('resize', this.checkWidthAll.bind(this))
-        document.body.addEventListener('wheel', this.checkScrollMouse.bind(this), { passive: false })
-        document.body.addEventListener('touchstart', this.startTouch.bind(this))
-        document.body.addEventListener('touchmove', this.moveTouch.bind(this))
+        const checkWidthAllConst = this.checkWidthAll.bind(this)
+        const checkScrollMouseConst = this.checkScrollMouse.bind(this)
+        const startTouchConst = this.startTouch.bind(this)
+        const moveTouchConst = this.moveTouch.bind(this)
+
+        window.addEventListener('resize', checkWidthAllConst)
+        window.addEventListener('wheel', checkScrollMouseConst, { passive: false })
+        window.addEventListener('touchstart', startTouchConst)
+        window.addEventListener('touchmove', moveTouchConst)
+
+        window.addEventListener('hashchange', hashChange)
 
         this.getPage('arrow-down').name.addEventListener('click', this.pageDown.bind(this))
         this.getPage('arrow-up').name.addEventListener('click', this.pageUp.bind(this))
+
+        function hashChange() {
+
+            window.removeEventListener('resize', checkWidthAllConst)
+            window.removeEventListener('wheel', checkScrollMouseConst)
+            window.removeEventListener('touchstart', startTouchConst)
+            window.removeEventListener('touchmove', moveTouchConst)
+    
+        }
     }
+
+
+
 
     checkScrollMouse(e: any | TouchEvent): void {
         if (e) e.preventDefault()

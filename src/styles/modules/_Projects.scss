@@ -9,8 +9,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 20;
-        color: #05d1d1;
+        z-index: -20;
+        color: black;
         font-size: 4rem;
         transition: .2s;
         
@@ -19,20 +19,36 @@
             &:active {
                 color: white;
             }
+
+
     
     }
 
     .arrow-left {
         left: 2%;
+
+        &-active {
+            z-index: 20;
+            color: #05d1d1;
+        }
     }
 
     .arrow-right {
         right: 2%; 
+
+        &-active {
+            z-index: 20;
+            color: #05d1d1;
+        }
     }
 
 
 
     .projects-container {
+
+        &-right {
+            transform: rotate3d(0, 0, 0, 60deg);
+        }
 
         position: relative;
 

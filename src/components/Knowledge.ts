@@ -40,7 +40,17 @@ class Knowledge extends HTMLElement {
         this.innerHTML = this.template()
         this.makeKnowledge()
         this.checkWidthKnowledge()
-        document.body.addEventListener('resize', this.checkWidthKnowledge)
+
+        window.addEventListener('resize', this.checkWidthKnowledge) 
+        window.addEventListener('hashchange', this.hashChange.bind(this))
+
+
+    }
+
+    hashChange(): void {
+
+        window.removeEventListener('resize', this.checkWidthKnowledge)
+    
     }
 
     makeKnowledge(): void {

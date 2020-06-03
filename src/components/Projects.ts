@@ -32,11 +32,13 @@ class Projects extends HTMLElement {
 
         setTimeout(() => {
             this.makeProjects()
+            this.checkActive()
         }, 100);
         
         window.addEventListener('keydown', this.moveKeyBoard.bind(this))
 
         window.addEventListener('touchstart', this.startTouch.bind(this))
+        window.addEventListener('touchmove', this.moveTouch.bind(this))
 
         document.querySelector('.right-projects').addEventListener('click', this.moveRight.bind(this))
         document.querySelector('.left-projects').addEventListener('click', this.moveLeft.bind(this))
@@ -47,7 +49,7 @@ class Projects extends HTMLElement {
         const container: HTMLDivElement = document.querySelector('.projects-down')
 
 
-        for (const element of projectList) {
+        for (const [index, element] of projectList.entries()) {
 
             const arrowBack: HTMLElement = this.createElement('a', '', 'href', '#/')
             arrowBack.innerHTML = '<i class="material-icons back-to-menu">first_page</i>'
@@ -55,6 +57,8 @@ class Projects extends HTMLElement {
             const projectContainer: HTMLElement = 
             this.createElement('div', 'projects-container', 'style', `left: ${element.left}`)
             projectContainer.appendChild(arrowBack)
+
+            if(index === 0) projectContainer.classList.add('checker')
 
             container.appendChild(projectContainer)
 
@@ -117,23 +121,13 @@ class Projects extends HTMLElement {
 
         const howMany: number = this.initial - whereNow
 
+        console.log(howMany);
 
-        // if (howMany > 0) {
-        //     // DOWN
-        //     if (this.getPage('cv-download').top >= 55) {
-        //         this.moveDown(this.containerElement, movePercentage)
-                
-        //     } else {
-        //         this.setActive(this.getPage('play'), true, 5000)
-        //     }
-        // } else {
-        //     // UP
-        //     if (this.getPage('easter-egg').top <= 45) {
-            
-        //         this.moveUp(this.containerElement, movePercentage)
-        //     }
-        // }
-
+        if(howMany > 0) {
+            this.moveRight()
+        } else {
+            this.moveLeft()
+        }
         this.initial = null
     }
 
@@ -173,17 +167,60 @@ class Projects extends HTMLElement {
             
         }
 
+        // this.checkActive()
+
     }
 
     moveRight(): void {
 
+        this.checkActive()
         this.move('right')
+        
 
     }
 
     moveLeft(): void {
 
+        this.checkActive()
         this.move('left')
+        
+    }
+
+    checkActive(): void {
+
+        setTimeout(() => {
+
+            const checker: HTMLElement = document.querySelector('.checker')
+
+            const leftFirst: number = parseInt(checker.style.left, 10)
+
+            if(leftFirst === 50) {
+                this.setActive('arrow-left', false)
+                this.setActive('arrow-right', true)
+            } else if (leftFirst === -100) {
+                this.setActive('arrow-left', true)
+                this.setActive('arrow-right', true)
+            } else if (leftFirst === -250) {
+                this.setActive('arrow-left', true)
+                this.setActive('arrow-right', false)
+            }
+            
+        }, 100);
+
+    }
+
+    setActive(what: string, addOrDelete: boolean): void {
+
+        const setActive: HTMLElement = document.querySelector(`.${what}`)
+
+        if(addOrDelete) {
+            setActive.classList.add(`${what}-active`)
+        } else {
+            setActive.classList.remove(`${what}-active`)
+        }
+
+        
+
     }
 
 
