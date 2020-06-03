@@ -4,8 +4,6 @@ import AboutMe from './components/AboutMe'
 import Knowledge from './components/Knowledge'
 import Projects from './components/Projects'
 
-import resetListeners from './components/assets/resetListeners'
-
 const routes = [
     { path: '/', component: Home, nodeN: 'HOME-PAGE' },
     { path: '/contact', component: Contact, nodeN: 'CONTACT-RIGHT' },
@@ -73,9 +71,22 @@ const checkRouter = () => {
     }
 }
 
+const checkLoading = () => {
+
+   let loadSite = setInterval(() => {
+        if(document.readyState === 'complete') {
+            const loading = document.querySelector('.loading-card')
+            loading.classList.add('loading-card-disactive')
+            clearInterval(loadSite)
+        } 
+   }, 50)
+    
+}
+
 export default {
     routes,
     startRouter,
     findComponent,
     parseLocation,
+    checkLoading
 }

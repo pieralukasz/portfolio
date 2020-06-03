@@ -1,8 +1,8 @@
 const knowledgeList =  [
     {
         name: "HTML",
-        text: "I write a lot of in HTML!",
-        expert: "frontend"
+        text: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics",
+        expert: "frontend",
     },
     {
         name: "CSS",

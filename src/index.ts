@@ -36,5 +36,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
     customElements.define('knowledge-me', Knowledge)
     customElements.define('projects-me', Projects)
 
+    Router.checkLoading()
+
     
 })

@@ -52,7 +52,7 @@ class Projects extends HTMLElement {
         for (const [index, element] of projectList.entries()) {
 
             const arrowBack: HTMLElement = this.createElement('a', '', 'href', '#/')
-            arrowBack.innerHTML = '<i class="material-icons back-to-menu">first_page</i>'
+            arrowBack.innerHTML = '<i class="material-icons back-to-menu">home</i>'
             
             const projectContainer: HTMLElement = 
             this.createElement('div', 'projects-container', 'style', `left: ${element.left}`)
@@ -72,10 +72,15 @@ class Projects extends HTMLElement {
             projectContainer.appendChild(projectInfo)
 
             const projectLive:HTMLElement = this.createElement('div', 'project-live')
+            const aCode: HTMLElement = this.createElement('a','', 'href', element.code)
             const code: HTMLElement = this.createElement('div', 'code')
-            code.textContent = 'CODE'
+            aCode.textContent = 'CODE'
+            code.appendChild(aCode)
             const live: HTMLElement = this.createElement('div', 'live')
-            live.textContent = 'LIVE'
+            const aLive: HTMLElement = this.createElement('a','', 'href', element.live)
+            aLive.textContent = 'LIVE'
+            live.appendChild(aLive)
+
             projectLive.appendChild(code)
             projectLive.appendChild(live)
             projectContainer.appendChild(projectLive)

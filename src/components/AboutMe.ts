@@ -22,7 +22,7 @@ class AboutMe extends HTMLElement {
                     I am a student at the Lodz University of Technology in Poland.
                 </div>
                 <div class="hire-me" style="top: 500%">
-                    In the future I dream about living in the <span class="blue-text">United States</span> or on <span class="red-text">Mars</span>.
+                    In the future I dream about living on the <span class="red-text">Mars</span>.
                 </div>
                 <div class="cv-download" style="top: 650%">My CV
                     <div class="polish"><a href="assets/CVŁukaszPiera.pdf" download="CVŁukaszPiera.pdf">

@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { Colors, Sphere } from 'three'
 import '../assets/planet1.jpg'
+import '../assets/background.png'
 
 import Router from '../routes'
 
@@ -24,6 +25,7 @@ class Photo extends HTMLElement {
     connectedCallback(): void {
         this.innerHTML = this.template()
         this.makeTHREE()
+        document.body.style.backgroundImage = 'url(/assets/background.png)'
 
         // window.addEventListener('load', this.makeTHREE)
     }
@@ -57,9 +59,13 @@ class Photo extends HTMLElement {
             256,
             256
         )
+
+
+            
         const texture: THREE.TextureLoader = new THREE.TextureLoader()
+
         const material: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
-            map: texture.load('../assets/planet1.jpg'),
+            map: texture.load('../assets/planet1.jpg')
             
         })
 
@@ -91,10 +97,10 @@ class Photo extends HTMLElement {
         function addOrDelete() {
             if (Router.parseLocation() === '/' || Router.parseLocation() === '/#') {
                 scene.add(cube)
-                // scene.add(sun)
+                scene.add(sun)
             } else {
                 scene.remove(cube)
-                // scene.remove(sun)
+                scene.remove(sun)
             }
         }
 

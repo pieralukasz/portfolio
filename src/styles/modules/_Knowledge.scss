@@ -90,7 +90,7 @@
     .title {
       width: 100%;
       height: 10%;
-      margin: 20px;
+      margin: 40px;
       font-size: 2.7rem;
       text-align: center;
     }
@@ -107,7 +107,7 @@
       padding-bottom: 10%;
 
       @media (max-width: 600px) {
-        font-size: 1rem;
+        font-size: 1.15rem;
       }
 
       .element {
@@ -121,7 +121,6 @@
         line-height: 15vh;
         transition: .3s;
         text-shadow: 4px 4px 4px #777777;
-
         cursor: pointer;
 
         &:hover {
