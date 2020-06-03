@@ -10,7 +10,7 @@ const projectsList =  [
     },
     {
         name: "This Portfolio",
-        gif: "/assets/snake.gif",
+        gif: "/assets/portfolio.gif",
         code: 'https://github.com/pieralukasz/portfolio',
         live: 'http://pieralukasz.me',
         left: '200%',

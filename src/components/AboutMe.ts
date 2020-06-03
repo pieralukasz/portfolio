@@ -1,4 +1,4 @@
-import '../assets/CVŁukaszPiera.pdf'
+import '../assets/CVŁukaszPieraPolish.pdf'
 
 interface Page {
     name: HTMLElement
@@ -25,10 +25,10 @@ class AboutMe extends HTMLElement {
                     In the future I dream about living on the <span class="red-text">Mars</span>.
                 </div>
                 <div class="cv-download" style="top: 650%">My CV
-                    <div class="polish"><a href="assets/CVŁukaszPiera.pdf" download="CVŁukaszPiera.pdf">
+                    <div class="polish"><a href="assets/CVŁukaszPieraPolish.pdf" download="CVŁukaszPieraPolish.pdf">
                         <span class="red-text">POLISH</span>
                     </a></div>
-                    <div class="english"><a href="assets/CVŁukaszPiera.pdf" download="CVŁukaszPiera.pdf">
+                    <div class="english"><a href="assets/CVŁukaszPieraPolish.pdf" download="CVŁukaszPieraPolish.pdf">
                         <span class="blue-text">ENGLISH</span>
                     </a></div>
                 </div>

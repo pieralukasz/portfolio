@@ -1,5 +1,6 @@
 import '../assets/llhurt.gif'
 import '../assets/snake.gif'
+import '../assets/portfolio.gif'
 import projectList from './assets/projects'
 import { create } from 'domain'
 

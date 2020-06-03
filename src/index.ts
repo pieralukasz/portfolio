@@ -1,5 +1,6 @@
 import './styles/style.scss'
 import '@webcomponents/custom-elements/custom-elements.min'
+import axios from 'axios'
 
 // pseudo Router
 
@@ -37,6 +38,11 @@ window.addEventListener('DOMContentLoaded', (): void => {
     customElements.define('projects-me', Projects)
 
     Router.checkLoading()
+
+    //server heroku start
+
+    axios.get('https://mailportfolio.herokuapp.com/')
+    .then(res => console.log(res.data.message))
 
     
 })
