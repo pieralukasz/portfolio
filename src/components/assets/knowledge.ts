@@ -1,4 +1,4 @@
-const knowledgeList =  [
+const knowledgeList: any =  [
     {
         name: "HTML",
         expert: "frontend",
@@ -20,12 +20,24 @@ const knowledgeList =  [
         expert: "frontend"
     },
     {
-        name: "Vue.JS",
+        name: "Vue.js",
         expert: "frontend"
     },
     {
         name: "Vuex",
         expert: "frontend"
+    },
+    {
+        name: "Vue-router",
+        expert: "frontend"
+    },
+    {
+        name: "Vue Observable",
+        expert: "frontend"
+    },
+    {
+        name: "Vuelidate",
+        expert: 'frontend'
     },
     {
         name: "SCSS",
@@ -36,11 +48,31 @@ const knowledgeList =  [
         expert: "frontend"
     },
     {
+        name: "OBJ",
+        expert: "frontend"
+    },
+    {
         name: "Axios",
         expert: "frontend"
     },
     {
-        name: "JEST",
+        name: "chart.js",
+        expert: "frontend"
+    },
+    {
+        name: "interact.js",
+        expert: "frontend"
+    },
+    {
+        name: "i18n",
+        expert: "frontend"
+    },
+    {
+        name: "jsPDF",
+        expert: "frontend"
+    },
+    {
+        name: "ESlint",
         expert: "frontend"
     },    
     {
@@ -60,11 +92,7 @@ const knowledgeList =  [
         expert: "backend"
     },
     {
-        name: "NPM",
-        expert: "backend"
-    },
-    {
-        name: "VSC",
+        name: "Python",
         expert: "backend"
     },
     {
@@ -81,6 +109,10 @@ const knowledgeList =  [
     },
     {
         name: "REST API",
+        expert: "backend"
+    },
+    {
+        name: "Linux",
         expert: "backend"
     }
     

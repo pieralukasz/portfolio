@@ -88,5 +88,6 @@ export default {
     startRouter,
     findComponent,
     parseLocation,
+    checkRouter,
     checkLoading
 }

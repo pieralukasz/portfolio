@@ -137,6 +137,12 @@
         transform: translate(-50%, -50%);
         color: white;
         transition: $transition-about;
+
+        @media (max-height: 500px) {
+          
+            font-size: 1rem;
+  
+        }
     }
 
     .information-hello-active {

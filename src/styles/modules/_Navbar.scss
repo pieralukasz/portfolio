@@ -26,15 +26,6 @@
                 text-shadow: 2px 1px #000000;
             }
 
-            // a {
-            //     display: block;
-            //     color: #ffffff;
-
-            //     &:hover {
-            //         color: #05d1d1;
-            //     }
-            // }
-
         }
 
         .about {
@@ -73,6 +64,47 @@
             left: 50%;
             transform: translate(-50%, 0);
         }
-    }
+
+        @media (max-height: 400px) {
+
+            .about {
+                top: 80%;
+    
+                &:hover {
+                    top: 80.5%;
+                }
+    
+            }
+
+            .contact {
+                top: 80%;
+
+                &:hover {
+                    top: 80.5%;
+                }
+            }
+        }
+
+        @media (max-height: 567px) {
+
+            .about {
+                top: 78%;
+    
+                &:hover {
+                    top: 78.5%;
+                }
+    
+            }
+
+            .contact {
+                top: 75%;
+
+                &:hover {
+                    top: 75.5%;
+                }
+            }
+        }
+
+}
 
 }

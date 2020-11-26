@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 class Home extends HTMLElement {
     // template Navbar
 
@@ -20,6 +22,10 @@ class Home extends HTMLElement {
 
     connectedCallback(): void {
         this.innerHTML = this.template()
+        
+        axios.get('https://mailportfolio.herokuapp.com')
+        .then(() => console.log('ok'))
+
     }
 }
 

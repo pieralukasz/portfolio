@@ -3,7 +3,7 @@
     position: absolute;
     left: 10%;
     top: 5%;
-    font-size: 120px;
+    font-size: 40px;
     color: white;
     font-family: $chakra-font;
     transition: 0.8s;
@@ -17,6 +17,11 @@
 
     .name {
         font-weight: bold;
+    }
+
+    @media (max-height: 500px) {
+        top: 0%;
+        font-size: 80px;
     }
 
 }

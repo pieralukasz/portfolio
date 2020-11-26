@@ -37,7 +37,7 @@ class Information extends HTMLElement {
                 )
                 const dot: HTMLDivElement = document.querySelector('.dot')
 
-                if (window.innerWidth < 650) {
+                if (window.innerWidth < 700) {
                     information.style.left = '50%'
                     information.style.transform = 'translateX(-50%)'
                     information.style.fontSize = '50px'
@@ -46,7 +46,11 @@ class Information extends HTMLElement {
                     information.style.left = '10%'
                     information.style.transform = 'translateX(0)'
                     information.style.fontSize = '120px'
-                    dot.style.fontSize = '240px'
+                    dot.style.fontSize = '220px'
+
+                    if(window.innerHeight < 500) {
+                        dot.style.fontSize = '180px'
+                    }
                 }
             }
         }, 100)

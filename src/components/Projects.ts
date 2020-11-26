@@ -208,6 +208,9 @@ class Projects extends HTMLElement {
                 this.setActive('arrow-right', true)
             } else if (leftFirst === -250) {
                 this.setActive('arrow-left', true)
+                this.setActive('arrow-right', true)
+            } else if (leftFirst === -400) {
+                this.setActive('arrow-left', true)
                 this.setActive('arrow-right', false)
             }
             

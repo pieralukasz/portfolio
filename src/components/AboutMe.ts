@@ -1,4 +1,5 @@
 import '../assets/CVŁukaszPieraPolish.pdf'
+import '../assets/CVŁukaszPieraEnglish.pdf'
 
 interface Page {
     name: HTMLElement
@@ -17,7 +18,7 @@ class AboutMe extends HTMLElement {
                 <div class="who-am" style="top: 50%;">
                     Who am I<span class="question-mark">?</span><br>         
                 </div>
-                <div class="information-hello" style="top: 200%">Łukasz Piera<br>Aspiring Developer</div>
+                <div class="information-hello" style="top: 200%">Łukasz Piera<br>Developer</div>
                 <div class="information-more" style="top: 350%">
                     I am a student at the Lodz University of Technology in Poland.
                 </div>
@@ -28,7 +29,7 @@ class AboutMe extends HTMLElement {
                     <div class="polish"><a href="assets/CVŁukaszPieraPolish.pdf" download="CVŁukaszPieraPolish.pdf">
                         <span class="red-text">POLISH</span>
                     </a></div>
-                    <div class="english"><a href="assets/CVŁukaszPieraPolish.pdf" download="CVŁukaszPieraPolish.pdf">
+                    <div class="english"><a href="assets/CVŁukaszPieraEnglish.pdf" download="CVŁukaszPieraEnglish.pdf">
                         <span class="blue-text">ENGLISH</span>
                     </a></div>
                 </div>
@@ -77,11 +78,13 @@ class AboutMe extends HTMLElement {
         const checkScrollMouseConst = this.checkScrollMouse.bind(this)
         const startTouchConst = this.startTouch.bind(this)
         const moveTouchConst = this.moveTouch.bind(this)
+        const moveKeyboardConst = this.moveKeyboard.bind(this)
 
         window.addEventListener('resize', checkWidthAllConst)
         window.addEventListener('wheel', checkScrollMouseConst, { passive: false })
         window.addEventListener('touchstart', startTouchConst)
         window.addEventListener('touchmove', moveTouchConst)
+        window.addEventListener('keydown', moveKeyboardConst)
 
         window.addEventListener('hashchange', hashChange)
 
@@ -94,6 +97,7 @@ class AboutMe extends HTMLElement {
             window.removeEventListener('wheel', checkScrollMouseConst)
             window.removeEventListener('touchstart', startTouchConst)
             window.removeEventListener('touchmove', moveTouchConst)
+            window.removeEventListener('keydown', moveKeyboardConst)
     
         }
     }
@@ -187,6 +191,25 @@ class AboutMe extends HTMLElement {
         this.initial = null
     }
 
+    moveKeyboard(e: KeyboardEvent): void {
+
+        const keyCode: string = e.code
+
+        switch (keyCode) {
+            case 'ArrowDown':
+                this.pageDown()
+                break;
+            case 'ArrowUp':
+                this.pageUp()
+                break;
+        
+            default:
+                break;
+        }
+
+
+    }
+
     // get object Page
 
     getPage(cssClass: string): Page {
@@ -202,6 +225,7 @@ class AboutMe extends HTMLElement {
     }
 
     pageDown() {
+
         const containerElement: [Page?] = this.getAllElements()
 
         if (this.getPage('cv-download').top >= 55) {
@@ -211,7 +235,8 @@ class AboutMe extends HTMLElement {
 
     pageUp() {
         const containerElement: [Page?] = this.getAllElements()
-        if (this.getPage('easter-egg').top <= 50) {
+
+        if (this.getPage('easter-egg').top < 50) {
             this.moveUp(containerElement, 150)
         }
     }
@@ -290,6 +315,10 @@ class AboutMe extends HTMLElement {
         } else {
             element.name.style.fontSize = size + 4 + 'rem'
         }
+
+        if (window.innerHeight < 600) {
+            element.name.style.fontSize = size + 'rem'
+        }
     }
 
     checkWidthAll(): void {
@@ -304,8 +333,10 @@ class AboutMe extends HTMLElement {
             this.getPage('information-more'),
             wholePercentage
         )
+
         this.checkWidthElement(this.getPage('hire-me'), wholePercentage)
         this.checkWidthElement(this.getPage('cv-download'), wholePercentage)
+
     }
 
     getAllElements(): [Page?] {

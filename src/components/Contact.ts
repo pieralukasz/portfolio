@@ -97,6 +97,7 @@ class Contact extends HTMLElement {
                     form.style.width = '50%'
                     headline.style.fontSize = '2.1rem'
                 }
+
             }
         }, 100)
     }
