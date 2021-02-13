@@ -46,7 +46,7 @@
   "dependencies": {
     "@webcomponents/custom-elements": "^1.4.1",
     "animejs": "^3.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "normalize.css": "^8.0.1",
